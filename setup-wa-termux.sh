@@ -52,10 +52,12 @@ echo -e "${RESET}"
 step "[1/8] Actualizando paquetes e instalando base..."
 if command -v pkg >/dev/null 2>&1; then
   pkg update -y
-  pkg install git nodejs-lts -y
+  pkg install git -y
+  pkg install nodejs-lts -y || pkg install nodejs -y
 else
   apt-get update -y
-  DEBIAN_FRONTEND=noninteractive apt-get install -y git nodejs-lts $YES_OPTS
+  DEBIAN_FRONTEND=noninteractive apt-get install -y git $YES_OPTS
+  DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs-lts $YES_OPTS || DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs $YES_OPTS
 fi
 
 apt-get update -y
@@ -79,7 +81,6 @@ status "Repositorios actualizados."
 
 step "[3/8] Instalando dependencias principales..."
 if ! DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    nodejs-lts \
     chromium \
     git \
     nano \

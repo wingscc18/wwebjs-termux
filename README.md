@@ -8,7 +8,7 @@ Copia y ejecuta estos comandos tal cual, en este orden:
 
 ```bash
 pkg install git -y
-git clone https://github.com/wingscc18/wwebjs-termux
+git clone wingscc18/wwebjs-termux
 cd wwebjs-termux
 chmod +x setup-wa-termux.sh
 ./setup-wa-termux.sh
