@@ -5,6 +5,8 @@ Bot base de WhatsApp Web con `whatsapp-web.js`, preparado para Termux usando Chr
 ## Instalacion en Termux
 
 ```bash
+pkg update -y
+pkg install git nodejs-lts -y
 git clone https://github.com/wingscc18/wwebjs-termux.git
 cd wwebjs-termux
 chmod +x setup-wa-termux.sh
@@ -13,3 +15,10 @@ npm start
 ```
 
 El script instala dependencias, bloquea la descarga automatica de Chromium/Puppeteer, detecta la ruta de Chromium y genera `config.js` con las rutas reales del dispositivo.
+
+Tambien puedes instalar solo las utilidades base con:
+
+```bash
+chmod +x utils/install-base.sh
+./utils/install-base.sh
+```

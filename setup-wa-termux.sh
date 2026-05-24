@@ -138,10 +138,21 @@ if [ ! -f package.json ]; then
   exit 1
 fi
 
+SETUP_WA_TERMUX=1 \
 PUPPETEER_SKIP_DOWNLOAD=true \
 PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 PUPPETEER_EXECUTABLE_PATH="$CHROMIUM_PATH" \
-npm install
+npm install whatsapp-web.js
+
+status "whatsapp-web.js instalado."
+
+SETUP_WA_TERMUX=1 \
+PUPPETEER_SKIP_DOWNLOAD=true \
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+PUPPETEER_EXECUTABLE_PATH="$CHROMIUM_PATH" \
+npm install qrcode-terminal
+
+status "qrcode-terminal instalado."
 
 status "Dependencias de Node instaladas."
 
