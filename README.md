@@ -16,7 +16,7 @@ npm start
 
 El script instala dependencias, bloquea la descarga automatica de Chromium/Puppeteer, detecta la ruta de Chromium y genera `config.js` con las rutas reales del dispositivo.
 
-El bloqueo de descarga de Puppeteer queda guardado en `.npmrc` y `.puppeteerrc.cjs`, asi que despues puedes instalar mas librerias con `npm install paquete` sin que Puppeteer intente descargar Chromium.
+El bloqueo de descarga de Puppeteer queda guardado en `.puppeteerrc.cjs`, asi que despues puedes instalar mas librerias con `npm install paquete` sin que Puppeteer intente descargar Chromium.
 
 Tambien puedes instalar solo las utilidades base con:
 
