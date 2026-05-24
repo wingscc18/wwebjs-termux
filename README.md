@@ -19,6 +19,20 @@ El script instala dependencias, bloquea la descarga automatica de Chromium/Puppe
 
 El bloqueo de descarga de Puppeteer queda guardado en `.puppeteerrc.cjs`, asi que despues puedes instalar mas librerias con `npm install paquete` sin que Puppeteer intente descargar Chromium.
 
+## Configuracion
+
+Para cambiar el prefijo de comandos, edita `prefix` en `config.js`:
+
+```bash
+micro config.js
+```
+
+Si `config.js` no existe, primero ejecuta:
+
+```bash
+./setup-wa-termux.sh
+```
+
 ## Comandos
 
 | Comando | Alias | Descripcion |
