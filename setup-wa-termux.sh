@@ -49,15 +49,14 @@ echo "          Script by Joshua Dev"
 echo "======================================"
 echo -e "${RESET}"
 
-step "[1/8] Actualizando paquetes e instalando base..."
-if command -v pkg >/dev/null 2>&1; then
-  pkg update -y
-  pkg install git -y
-  pkg install nodejs-lts -y || pkg install nodejs -y
-else
-  apt-get update -y
-  DEBIAN_FRONTEND=noninteractive apt-get install -y git $YES_OPTS
-  DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs-lts $YES_OPTS || DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs $YES_OPTS
+step "[1/8] Validando Node.js y actualizando paquetes..."
+if ! command -v node >/dev/null 2>&1 || ! command -v npm >/dev/null 2>&1; then
+  error "No encontre Node.js o npm."
+  echo ""
+  echo -e "${YELLOW}Primero instala Node.js LTS y vuelve a ejecutar:${RESET}"
+  echo -e "${CYAN}pkg install nodejs-lts -y${RESET}"
+  echo -e "${CYAN}./setup-wa-termux.sh${RESET}"
+  exit 1
 fi
 
 apt-get update -y
