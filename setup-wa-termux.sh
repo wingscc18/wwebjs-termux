@@ -49,7 +49,15 @@ echo "          Script by Joshua Dev"
 echo "======================================"
 echo -e "${RESET}"
 
-step "[1/8] Actualizando paquetes..."
+step "[1/8] Actualizando paquetes e instalando base..."
+if command -v pkg >/dev/null 2>&1; then
+  pkg update -y
+  pkg install git nodejs-lts -y
+else
+  apt-get update -y
+  DEBIAN_FRONTEND=noninteractive apt-get install -y git nodejs-lts $YES_OPTS
+fi
+
 apt-get update -y
 DEBIAN_FRONTEND=noninteractive apt-get upgrade -y $YES_OPTS
 status "Sistema actualizado."
