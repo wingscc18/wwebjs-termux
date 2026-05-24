@@ -5,13 +5,10 @@ Bot base de WhatsApp Web con `whatsapp-web.js`, preparado para Termux usando Chr
 ## Instalacion en Termux
 
 ```bash
+git clone https://github.com/wingscc18/wwebjs-termux.git
+cd wwebjs-termux
 chmod +x setup-wa-termux.sh
 ./setup-wa-termux.sh
-```
-
-## Ejecucion
-
-```bash
 npm start
 ```
 
