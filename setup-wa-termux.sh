@@ -114,6 +114,25 @@ done
 npm config set puppeteer_skip_download true >/dev/null 2>&1 || true
 npm config set puppeteer_skip_chromium_download true >/dev/null 2>&1 || true
 
+cat > "$PROJECT_DIR/.npmrc" <<'APP'
+puppeteer_skip_download=true
+puppeteer_skip_chromium_download=true
+PUPPETEER_SKIP_DOWNLOAD=true
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+APP
+
+cat > "$PROJECT_DIR/.puppeteerrc.cjs" <<'APP'
+module.exports = {
+    skipDownload: true,
+    chrome: {
+        skipDownload: true
+    },
+    chromium: {
+        skipDownload: true
+    }
+};
+APP
+
 status "Puppeteer configurado para no descargar Chromium."
 
 step "[6/8] Capturando rutas del sistema..."
