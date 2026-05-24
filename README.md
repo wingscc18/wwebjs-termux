@@ -57,10 +57,3 @@ Con `micro`:
 ```bash
 micro commands/ping.js
 ```
-
-Tambien puedes instalar solo las utilidades base con:
-
-```bash
-chmod +x utils/install-base.sh
-./utils/install-base.sh
-```
