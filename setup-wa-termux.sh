@@ -55,18 +55,37 @@ DEBIAN_FRONTEND=noninteractive apt-get upgrade -y $YES_OPTS
 status "Sistema actualizado."
 
 step "[2/8] Instalando repo X11..."
-DEBIAN_FRONTEND=noninteractive apt-get install -y x11-repo $YES_OPTS
+if command -v pkg >/dev/null 2>&1; then
+  if pkg install x11-repo -y; then
+    status "Repo X11 instalado con pkg."
+  else
+    warn "No se pudo instalar x11-repo con pkg, probando con apt-get."
+    DEBIAN_FRONTEND=noninteractive apt-get install -y x11-repo $YES_OPTS || warn "x11-repo no esta disponible en este entorno."
+  fi
+else
+  DEBIAN_FRONTEND=noninteractive apt-get install -y x11-repo $YES_OPTS || warn "x11-repo no esta disponible en este entorno."
+fi
+
 apt-get update -y
-status "Repo X11 listo."
+status "Repositorios actualizados."
 
 step "[3/8] Instalando dependencias principales..."
-DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  nodejs-lts \
-  chromium \
-  git \
-  nano \
-  which \
-  $YES_OPTS
+if ! DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    nodejs-lts \
+    chromium \
+    git \
+    nano \
+    which \
+    $YES_OPTS; then
+  error "No se pudieron instalar las dependencias principales."
+  echo ""
+  echo -e "${YELLOW}Si falla Chromium, prueba cambiar el repo de Termux:${RESET}"
+  echo "  termux-change-repo"
+  echo "  pkg update -y"
+  echo "  pkg install x11-repo -y"
+  echo "  pkg install chromium -y"
+  exit 1
+fi
 
 status "Node.js, Chromium y herramientas instaladas."
 

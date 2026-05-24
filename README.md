@@ -16,6 +16,13 @@ npm start
 
 El script instala dependencias, bloquea la descarga automatica de Chromium/Puppeteer, detecta la ruta de Chromium y genera `config.js` con las rutas reales del dispositivo.
 
+Si `npm start` dice que falta `config.js`, `whatsapp-web.js` o `qrcode-terminal`, vuelve a correr:
+
+```bash
+chmod +x setup-wa-termux.sh
+./setup-wa-termux.sh
+```
+
 Tambien puedes instalar solo las utilidades base con:
 
 ```bash

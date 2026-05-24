@@ -1,9 +1,18 @@
-const qrcode = require('qrcode-terminal');
-const { Client, LocalAuth } = require('whatsapp-web.js');
 const fs = require('fs');
 const path = require('path');
 
 const configPath = path.join(__dirname, 'config.js');
+
+function requireInstalled(packageName) {
+    try {
+        require.resolve(packageName);
+    } catch (error) {
+        console.error(`Falta ${packageName}. Primero instala y configura el proyecto en Termux con:`);
+        console.error('chmod +x setup-wa-termux.sh');
+        console.error('./setup-wa-termux.sh');
+        process.exit(1);
+    }
+}
 
 if (!fs.existsSync(configPath)) {
     console.error('Falta config.js. Primero configura el proyecto en Termux con:');
@@ -12,6 +21,11 @@ if (!fs.existsSync(configPath)) {
     process.exit(1);
 }
 
+requireInstalled('whatsapp-web.js');
+requireInstalled('qrcode-terminal');
+
+const qrcode = require('qrcode-terminal');
+const { Client, LocalAuth } = require('whatsapp-web.js');
 const config = require('./config');
 const { loadCommands } = require('./handlers/commands');
 const { loadEvents } = require('./handlers/events');
