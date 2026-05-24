@@ -2,7 +2,7 @@
 
 Bot base de WhatsApp Web con `whatsapp-web.js`, preparado para Termux usando Chromium instalado por paquetes.
 
-## Instalacion en Termux
+## Instalacion en Termux <span style="color:red">instalacion OBLIGATORIA</span>
 
 ```bash
 pkg update -y
