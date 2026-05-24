@@ -25,6 +25,28 @@ El bloqueo de descarga de Puppeteer queda guardado en `.puppeteerrc.cjs`, asi qu
 | `!help` | `!h`, `!ayuda`, `!comandos` | Muestra la lista de comandos disponibles. |
 | `!ping` | `!p` | Responde `pong`. |
 
+## Editar archivos en Termux
+
+Para editar archivos rapido puedes usar `nano`:
+
+```bash
+nano commands/ping.js
+```
+
+Si quieres un editor mas comodo en terminal, instala `micro`:
+
+```bash
+pkg install micro -y
+micro commands/ping.js
+```
+
+Tambien puedes usar `vim` si ya estas acostumbrado:
+
+```bash
+pkg install vim -y
+vim commands/ping.js
+```
+
 Tambien puedes instalar solo las utilidades base con:
 
 ```bash
