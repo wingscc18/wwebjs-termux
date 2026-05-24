@@ -13,12 +13,28 @@ git clone https://github.com/wingscc18/wwebjs-termux
 cd wwebjs-termux
 chmod +x setup-wa-termux.sh
 ./setup-wa-termux.sh
-npm start
 ```
 
 El script instala dependencias, bloquea la descarga automatica de Chromium/Puppeteer, detecta la ruta de Chromium y genera `config.js` con las rutas reales del dispositivo.
 
 El bloqueo de descarga de Puppeteer queda guardado en `.puppeteerrc.cjs`, asi que despues puedes instalar mas librerias con `npm install paquete` sin que Puppeteer intente descargar Chromium.
+
+## Ejecucion con pm2
+
+Despues de correr la instalacion, inicia el bot con:
+
+```bash
+pm2 start index.js --name wwebjs-termux
+pm2 logs wwebjs-termux
+```
+
+Comandos utiles:
+
+```bash
+pm2 restart wwebjs-termux
+pm2 stop wwebjs-termux
+pm2 delete wwebjs-termux
+```
 
 ## Configuracion
 

@@ -194,6 +194,10 @@ npm install qrcode-terminal
 
 status "qrcode-terminal instalado."
 
+npm install -g pm2
+
+status "pm2 instalado."
+
 status "Dependencias de Node instaladas."
 
 step "[8/8] Generando config.js con rutas de Termux..."
@@ -261,8 +265,9 @@ echo -e "${GREEN}Node:${RESET} $(node -v)"
 echo -e "${GREEN}NPM:${RESET} $(npm -v)"
 echo ""
 
-echo -e "${YELLOW}Para arrancar el bot:${RESET}"
-echo -e "${CYAN}npm start${RESET}"
+echo -e "${YELLOW}Para arrancar el bot con pm2:${RESET}"
+echo -e "${CYAN}pm2 start index.js --name wwebjs-termux${RESET}"
+echo -e "${CYAN}pm2 logs wwebjs-termux${RESET}"
 echo ""
 
 echo -e "${YELLOW}Si Chromium falla en headless, edita config.js y cambia:${RESET}"
@@ -271,10 +276,10 @@ echo -e "${YELLOW}por:${RESET}"
 echo -e "${CYAN}headless: \"new\"${RESET}"
 echo ""
 
-echo -e "${YELLOW}Para dejarlo corriendo con tmux:${RESET}"
-echo -e "${CYAN}pkg install tmux -y${RESET}"
-echo -e "${CYAN}tmux new -s wa${RESET}"
-echo -e "${CYAN}cd \"$PROJECT_DIR\" && npm start${RESET}"
+echo -e "${YELLOW}Comandos utiles de pm2:${RESET}"
+echo -e "${CYAN}pm2 restart wwebjs-termux${RESET}"
+echo -e "${CYAN}pm2 stop wwebjs-termux${RESET}"
+echo -e "${CYAN}pm2 delete wwebjs-termux${RESET}"
 echo ""
 
 echo -e "${RED}${BOLD}Script hecho por Joshua Dev${RESET}"
