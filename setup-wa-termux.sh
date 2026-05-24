@@ -75,6 +75,7 @@ if ! DEBIAN_FRONTEND=noninteractive apt-get install -y \
     chromium \
     git \
     nano \
+    micro \
     which \
     $YES_OPTS; then
   error "No se pudieron instalar las dependencias principales."

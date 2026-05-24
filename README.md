@@ -27,24 +27,20 @@ El bloqueo de descarga de Puppeteer queda guardado en `.puppeteerrc.cjs`, asi qu
 
 ## Editar archivos en Termux
 
-Para editar archivos rapido puedes usar `nano`:
+Para editar archivos puedes usar `nano` o `micro`.
+
+`micro` se instala por defecto durante `./setup-wa-termux.sh`.
+
+Con `nano`:
 
 ```bash
 nano commands/ping.js
 ```
 
-Si quieres un editor mas comodo en terminal, instala `micro`:
+Con `micro`:
 
 ```bash
-pkg install micro -y
 micro commands/ping.js
-```
-
-Tambien puedes usar `vim` si ya estas acostumbrado:
-
-```bash
-pkg install vim -y
-vim commands/ping.js
 ```
 
 Tambien puedes instalar solo las utilidades base con:
