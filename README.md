@@ -24,16 +24,16 @@ El bloqueo de descarga de Puppeteer queda guardado en `.puppeteerrc.cjs`, asi qu
 Despues de correr la instalacion, inicia el bot con:
 
 ```bash
-pm2 start index.js --name wwebjs-termux
-pm2 logs wwebjs-termux
+pm2 start index.js --name was
+pm2 logs was
 ```
 
 Comandos utiles:
 
 ```bash
-pm2 restart wwebjs-termux
-pm2 stop wwebjs-termux
-pm2 delete wwebjs-termux
+pm2 restart was
+pm2 stop was
+pm2 delete was
 ```
 
 ## Configuracion
