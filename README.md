@@ -18,13 +18,6 @@ El script instala dependencias, bloquea la descarga automatica de Chromium/Puppe
 
 El bloqueo de descarga de Puppeteer queda guardado en `.npmrc` y `.puppeteerrc.cjs`, asi que despues puedes instalar mas librerias con `npm install paquete` sin que Puppeteer intente descargar Chromium.
 
-Si `npm start` dice que falta `config.js`, `whatsapp-web.js` o `qrcode-terminal`, vuelve a correr:
-
-```bash
-chmod +x setup-wa-termux.sh
-./setup-wa-termux.sh
-```
-
 Tambien puedes instalar solo las utilidades base con:
 
 ```bash
