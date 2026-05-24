@@ -270,12 +270,6 @@ echo -e "${CYAN}pm2 start index.js --name was${RESET}"
 echo -e "${CYAN}pm2 logs was${RESET}"
 echo ""
 
-echo -e "${YELLOW}Si Chromium falla en headless, edita config.js y cambia:${RESET}"
-echo -e "${CYAN}headless: true${RESET}"
-echo -e "${YELLOW}por:${RESET}"
-echo -e "${CYAN}headless: \"new\"${RESET}"
-echo ""
-
 echo -e "${YELLOW}Comandos utiles de pm2:${RESET}"
 echo -e "${CYAN}pm2 restart was${RESET}"
 echo -e "${CYAN}pm2 stop was${RESET}"
