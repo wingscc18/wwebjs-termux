@@ -5,7 +5,13 @@ async function handleCommand(client, context, message) {
         return;
     }
 
-    const args = message.body.slice(prefix.length).trim().split(/\s+/);
+    const content = message.body.slice(prefix.length).trim();
+
+    if (!content) {
+        return;
+    }
+
+    const args = content.split(/\s+/);
     const commandName = args.shift().toLowerCase();
     const command = context.commands.get(commandName);
 

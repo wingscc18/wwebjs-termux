@@ -18,6 +18,13 @@ El script instala dependencias, bloquea la descarga automatica de Chromium/Puppe
 
 El bloqueo de descarga de Puppeteer queda guardado en `.puppeteerrc.cjs`, asi que despues puedes instalar mas librerias con `npm install paquete` sin que Puppeteer intente descargar Chromium.
 
+## Comandos
+
+| Comando | Alias | Descripcion |
+| --- | --- | --- |
+| `!help` | `!h`, `!ayuda`, `!comandos` | Muestra la lista de comandos disponibles. |
+| `!ping` | `!p` | Responde `pong`. |
+
 Tambien puedes instalar solo las utilidades base con:
 
 ```bash

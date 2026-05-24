@@ -3,6 +3,7 @@ const path = require('path');
 
 function loadCommands(commandsPath) {
     const commands = new Map();
+    const commandList = [];
     const resolvedCommandsPath = path.resolve(commandsPath);
 
     if (!fs.existsSync(resolvedCommandsPath)) {
@@ -18,8 +19,20 @@ function loadCommands(commandsPath) {
             continue;
         }
 
-        commands.set(command.name.toLowerCase(), command);
+        const name = command.name.toLowerCase();
+        const aliases = Array.isArray(command.aliases) ? command.aliases : [];
+
+        command.aliases = aliases.map(alias => alias.toLowerCase());
+        commands.set(name, command);
+
+        for (const alias of command.aliases) {
+            commands.set(alias, command);
+        }
+
+        commandList.push(command);
     }
+
+    commands.list = commandList;
 
     return commands;
 }
